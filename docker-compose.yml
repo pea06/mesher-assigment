@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mesher-assignment-server
+    ports:
+      - '3000:3000'
+    networks:
+      - masher-assignment-network
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: masher-assignment-postgres
+    image: postgres:latest
+    environment:
+      - 'POSTGRES_DB=masher-assigment'
+      - 'POSTGRES_PASSWORD=password'
+      - 'POSTGRES_USER=lupin'
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - masher-assignment-network
+
+
+networks:
+  masher-assignment-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
