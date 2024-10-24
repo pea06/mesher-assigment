@@ -30,4 +30,4 @@ docker compose up -d --build
 
 서버가 실행된 후, Swagger를 통해 API 문서를 확인할 수 있습니다.
 
-Swagger URL: [https://localhost:3000/api-docs](https://localhost:3000/api-docs)
+Swagger URL: [https://localhost:3000/api-docs](http://localhost:3000/api-docs)
